@@ -1,0 +1,13 @@
+@import '../../styles/theme.scss';
+
+.testing {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: $white;
+}
+
+.mainNext {
+  margin-right: 30px;
+}
