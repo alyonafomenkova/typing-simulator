@@ -1,0 +1,16 @@
+@import './theme.scss';
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+  font-size: 16px;
+  background-color: $light-purple;
+}
