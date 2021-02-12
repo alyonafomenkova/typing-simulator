@@ -1,0 +1,14 @@
+@import '../../styles/theme.scss';
+
+.button {
+  padding: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  background-color: $green;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $dark-green;
+  }
+}
