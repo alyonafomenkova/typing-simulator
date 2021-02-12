@@ -1,0 +1,50 @@
+@import '../../styles/theme.scss';
+
+.speedWrapper,
+.precisionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.speedText,
+.precisionText {
+  padding-left: 30px;
+  color: $purple;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-image: url('./images/stat.png');
+  background-repeat: no-repeat;
+}
+
+.precisionText {
+  background-position: 0 -40px;
+}
+
+.speedValue,
+.precisionValue {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $dark-green;
+}
+
+.speedMeasurement,
+.precisionMeasurement {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $dark-green;
+}
+
+.reload {
+  padding-left: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $green;
+  text-decoration: none;
+  background-image: url('./images/reload.png');
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+}
