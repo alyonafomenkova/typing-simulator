@@ -1,0 +1,37 @@
+@import '../../styles/theme.scss';
+
+.settings {
+  min-width: 600px;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: $light-purple 0 0 30px;
+  background-color: $white;
+}
+
+.top {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.imageWrapper {
+  margin: 0 auto;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
