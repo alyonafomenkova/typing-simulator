@@ -2,7 +2,7 @@ import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { useCallback } from 'react';
 import keyboard from './images/keyboard-icon.png';
-import setLanguage from '../../redux/actions';
+import { setLanguage } from '../../redux/actions';
 
 const LanguageSwitcher = () => {
   const options = [
