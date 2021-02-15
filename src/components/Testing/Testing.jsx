@@ -1,18 +1,27 @@
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
 import Statistics from '../Statistics/Statistics';
 import styles from './Testing.module.scss';
 import getText from '../../API/Api';
+import { setText } from '../../redux/actions';
 
 const Testing = () => {
   const language = useSelector((state) => {
     return state.testingReducer.language;
   });
-  const [text, setText] = useState();
+  const [text, updateText] = useState();
+  const dispatch = useDispatch();
+  const addTextToState = useCallback(
+    (data: string) => {
+      dispatch(setText(data));
+    },
+    [text]
+  );
+  addTextToState(text);
 
   useEffect(() => {
     getText(language).then((response) => {
-      setText(response);
+      updateText(response);
     });
   }, [language]);
 

@@ -1,4 +1,4 @@
-import { SET_RU_LANGUAGE, SET_EN_LANGUAGE } from './types';
+import { SET_RU_LANGUAGE, SET_EN_LANGUAGE, SET_TEXT } from './types';
 
 const setLanguage = (language: string): any => {
   switch (language) {
@@ -10,4 +10,13 @@ const setLanguage = (language: string): any => {
   }
 };
 
-export default setLanguage;
+const setText = (text?: string): any => {
+  return {
+    type: SET_TEXT,
+    payload: {
+      text,
+    },
+  };
+};
+
+export { setLanguage, setText };
