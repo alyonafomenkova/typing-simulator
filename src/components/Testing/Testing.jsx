@@ -20,9 +20,14 @@ const Testing = () => {
   addTextToState(text);
 
   useEffect(() => {
-    getText(language).then((response) => {
-      updateText(response);
-    });
+    getText(language)
+      .then((response) => {
+        updateText(response);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(`Error loading ${language} text`, error);
+      });
   }, [language]);
 
   return (
