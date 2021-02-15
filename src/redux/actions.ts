@@ -1,4 +1,9 @@
-import { SET_RU_LANGUAGE, SET_EN_LANGUAGE, SET_TEXT } from './types';
+import {
+  SET_RU_LANGUAGE,
+  SET_EN_LANGUAGE,
+  SET_TEXT,
+  SET_IS_READY,
+} from './types';
 
 const setLanguage = (language: string): any => {
   switch (language) {
@@ -19,4 +24,13 @@ const setText = (text?: string): any => {
   };
 };
 
-export { setLanguage, setText };
+const setIsReady = (isReady?: boolean): any => {
+  return {
+    type: SET_IS_READY,
+    payload: {
+      isReady,
+    },
+  };
+};
+
+export { setLanguage, setText, setIsReady };

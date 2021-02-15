@@ -1,13 +1,19 @@
-import { SET_EN_LANGUAGE, SET_RU_LANGUAGE, SET_TEXT } from './types';
+import {
+  SET_EN_LANGUAGE,
+  SET_RU_LANGUAGE,
+  SET_TEXT,
+  SET_IS_READY,
+} from './types';
 
 const initialState = {
   language: 'ru',
   text: '',
+  isReady: false,
 };
 
 const testingReducer = (
   state = initialState,
-  action: { type: string; payload: { text: string } }
+  action: { type: string; payload: { text: string; isReady: boolean } }
 ) => {
   const stateCopy = { ...state };
   console.log('[testingReducer] stateCopy', stateCopy); // TODO: удалить
@@ -26,6 +32,12 @@ const testingReducer = (
       console.log('action.payload: ', action.payload);
       stateCopy.text = action.payload.text;
       console.log('[testingReducer] Подтянулся текст', stateCopy); // TODO: удалить
+      return stateCopy;
+    }
+    case SET_IS_READY: {
+      console.log('action.payload: ', action.payload);
+      stateCopy.isReady = action.payload.isReady;
+      console.log('[testingReducer] Поменяли статус isReady', stateCopy); // TODO: удалить
       return stateCopy;
     }
     default:
