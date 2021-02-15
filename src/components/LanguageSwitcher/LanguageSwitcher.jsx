@@ -1,11 +1,19 @@
 import Select from 'react-select';
+import { useDispatch } from 'react-redux';
+import { useCallback } from 'react';
 import keyboard from './images/keyboard-icon.png';
+import setLanguage from '../../redux/actions';
 
 const LanguageSwitcher = () => {
   const options = [
-    { value: 'Русский', label: 'Русский' },
-    { value: 'English', label: 'English' },
+    { value: 'Русский', label: 'Русский', id: 'ru' },
+    { value: 'English', label: 'English', id: 'en' },
   ];
+  const dispatch = useDispatch();
+  const handleChangeSelect = useCallback((evt) => {
+    dispatch(setLanguage(evt.id));
+  }, []);
+
   const customStyles = {
     container: () => ({
       minWidth: '150px',
@@ -57,7 +65,12 @@ const LanguageSwitcher = () => {
     },
   };
   return (
-    <Select options={options} styles={customStyles} defaultValue={options[0]} />
+    <Select
+      options={options}
+      styles={customStyles}
+      defaultValue={options[0]}
+      onChange={handleChangeSelect}
+    />
   );
 };
 
