@@ -1,0 +1,22 @@
+@import '../../styles/theme.scss';
+
+.passed {
+  font-size: 18px;
+  color: $dark-green;
+}
+
+.current {
+  font-size: 18px;
+  color: $white;
+  background-color: $dark-green;
+}
+
+.wrong {
+  font-size: 18px;
+  color: $white;
+  background-color: $purple;
+}
+
+.common {
+  font-size: 18px;
+}
