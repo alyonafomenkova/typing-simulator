@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
-import Statistics from '../Statistics/Statistics';
 import getText from '../../API/Api';
+import calculatePrecision from '../../helpers/calculatePrecision';
 import { setText } from '../../redux/actions';
-import styles from './Testing.module.scss';
+import Statistics from '../Statistics/Statistics';
 import Symbol from '../Symbol/Symbol';
+import styles from './Testing.module.scss';
 
 const Testing = () => {
   const language = useSelector((state) => {
@@ -21,6 +22,7 @@ const Testing = () => {
   addTextToState(text);
   const str1 = 'Привет! Как твои дела?'; // TODO: удалить тестовые данные
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mistakesCount, setMistakesCount] = useState(0);
   const [isChecked, setIsChecked] = useState(true);
   const uprateProgress = (
     str: string,
@@ -49,28 +51,33 @@ const Testing = () => {
 
   const handleKeyDown = (evt) => {
     if (evt.key === str1[currentIndex]) {
-      console.log('Верно!');
+      console.log('верно!');
       setCurrentIndex(currentIndex + 1);
       setIsChecked(true);
     } else {
-      console.log('Ошибка!', 'нажата: ', evt.key, 'надо: ', str1[currentIndex]);
       setIsChecked(false);
+      setMistakesCount(mistakesCount + 1);
+      console.log(
+        '+1 ошибка! нажата: ',
+        evt.key,
+        'а надо: ',
+        str1[currentIndex]
+      );
+      console.log('mistakesCount: ', mistakesCount);
     }
   };
 
   useEffect(() => {
+    console.log('меняем точность!');
+  }, [mistakesCount]);
+
+  useEffect(() => {
     if (currentIndex < str1.length) {
-      console.log(
-        '[useEffect] currentIndex: ',
-        currentIndex,
-        'length: ',
-        str1.length
-      );
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keypress', handleKeyDown);
     }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keypress', handleKeyDown);
     };
   }, [currentIndex]);
 
@@ -90,7 +97,10 @@ const Testing = () => {
       <div className={styles.mainNext}>
         {uprateProgress(str1, currentIndex, isChecked)}
       </div>
-      <Statistics speed={0} precision={100} />
+      <Statistics
+        speed={0}
+        precision={calculatePrecision(str1, mistakesCount)}
+      />
     </div>
   );
 };
