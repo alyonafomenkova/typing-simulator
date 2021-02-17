@@ -72,14 +72,13 @@ const Testing = () => {
   useEffect(() => {
     if (startTime && !finished) {
       const interval = setInterval(() => {
-        const passed = text.length - mistakesCount;
-        setSymbolsPerMinute(calculateSymbolsPerMinute(startTime, passed));
-      }, 1500);
+        setSymbolsPerMinute(calculateSymbolsPerMinute(startTime, currentIndex));
+      }, 500);
       return () => {
         clearInterval(interval);
       };
     }
-  }, [startTime, finished]);
+  }, [startTime, finished, currentIndex]);
 
   useEffect(() => {
     if (text && currentIndex < text.length) {
