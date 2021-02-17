@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/typing-simulator/static/css/main.8ffc60b9.chunk.css",
+    "main.css": "/typing-simulator/static/css/main.5f2071f5.chunk.css",
     "main.js": "/typing-simulator/static/js/main.dec1c8ec.chunk.js",
     "main.js.map": "/typing-simulator/static/js/main.dec1c8ec.chunk.js.map",
     "runtime-main.js": "/typing-simulator/static/js/runtime-main.160ae7b5.js",
@@ -10,14 +10,14 @@
     "static/js/3.36e2e9bf.chunk.js": "/typing-simulator/static/js/3.36e2e9bf.chunk.js",
     "static/js/3.36e2e9bf.chunk.js.map": "/typing-simulator/static/js/3.36e2e9bf.chunk.js.map",
     "index.html": "/typing-simulator/index.html",
-    "static/css/main.8ffc60b9.chunk.css.map": "/typing-simulator/static/css/main.8ffc60b9.chunk.css.map",
+    "static/css/main.5f2071f5.chunk.css.map": "/typing-simulator/static/css/main.5f2071f5.chunk.css.map",
     "static/js/2.dcc8a88a.chunk.js.LICENSE.txt": "/typing-simulator/static/js/2.dcc8a88a.chunk.js.LICENSE.txt",
     "static/media/cat.f834dc79.png": "/typing-simulator/static/media/cat.f834dc79.png"
   },
   "entrypoints": [
     "static/js/runtime-main.160ae7b5.js",
     "static/js/2.dcc8a88a.chunk.js",
-    "static/css/main.8ffc60b9.chunk.css",
+    "static/css/main.5f2071f5.chunk.css",
     "static/js/main.dec1c8ec.chunk.js"
   ]
 }
