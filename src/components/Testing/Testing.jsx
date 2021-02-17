@@ -21,7 +21,6 @@ const Testing = () => {
     [text]
   );
   addTextToState(text);
-  const str1 = 'Привет! Как твои дела?'; // TODO: удалить тестовые данные
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mistakesCount, setMistakesCount] = useState(0);
   const [isChecked, setIsChecked] = useState(true);
@@ -54,26 +53,18 @@ const Testing = () => {
   };
 
   const handleKeyDown = (evt) => {
-    if (evt.key === str1[currentIndex]) {
+    if (evt.key === text[currentIndex]) {
       setCurrentIndex(currentIndex + 1);
       setIsChecked(true);
       if (!startTime) {
         setStartTime(new Date().getTime());
       }
-      if (currentIndex === str1.length - 1) {
-        console.log('Всё верно! закончили!');
+      if (currentIndex === text.length - 1) {
         setFinished(true);
       }
     } else {
       setIsChecked(false);
       setMistakesCount(mistakesCount + 1);
-      console.log(
-        '+1 ошибка! нажата: ',
-        evt.key,
-        'а надо: ',
-        str1[currentIndex]
-      );
-      console.log('mistakesCount: ', mistakesCount);
     }
   };
 
@@ -81,8 +72,7 @@ const Testing = () => {
   useEffect(() => {
     if (startTime && !finished) {
       const interval = setInterval(() => {
-        console.log('[useEffect]');
-        const passed = str1.length - mistakesCount;
+        const passed = text.length - mistakesCount;
         setSymbolsPerMinute(calculateSymbolsPerMinute(startTime, passed));
       }, 1500);
       return () => {
@@ -92,14 +82,14 @@ const Testing = () => {
   }, [startTime, finished]);
 
   useEffect(() => {
-    if (currentIndex < str1.length) {
+    if (text && currentIndex < text.length) {
       document.addEventListener('keypress', handleKeyDown);
     }
 
     return () => {
       document.removeEventListener('keypress', handleKeyDown);
     };
-  }, [currentIndex]);
+  }, [text, currentIndex]);
 
   useEffect(() => {
     getText(language)
@@ -115,11 +105,11 @@ const Testing = () => {
   return (
     <div className={styles.testing}>
       <div className={styles.mainNext}>
-        {uprateProgress(str1, currentIndex, isChecked)}
+        {text && uprateProgress(text, currentIndex, isChecked)}
       </div>
       <Statistics
         speed={symbolsPerMinute}
-        precision={calculatePrecision(str1, mistakesCount)}
+        precision={text ? calculatePrecision(text, mistakesCount) : 100}
       />
     </div>
   );

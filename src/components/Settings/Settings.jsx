@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
+import { setIsReady } from '../../redux/actions';
 import Button from '../Button/Button';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import styles from './Settings.module.scss';
 import cat from './images/cat.png';
-import { setIsReady } from '../../redux/actions';
 
 const Settings = () => {
   const text = useSelector((state) => {

@@ -18,7 +18,7 @@ const Statistics = ({ speed, precision }: StatisticsProps) => (
       </div>
     </div>
     <div>
-      <a href="test" className={styles.reload}>
+      <a href="/" className={styles.reload}>
         Заново
       </a>
     </div>
