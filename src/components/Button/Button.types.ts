@@ -5,6 +5,7 @@ interface CustomAttributes {
 }
 
 interface ButtonProps extends CustomAttributes {
+  isTextButton?: boolean;
   text: string;
   submit?: boolean;
   onClick?: () => void;

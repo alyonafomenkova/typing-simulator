@@ -1,11 +1,16 @@
 import ButtonProps from './Button.types';
 import styles from './Button.module.scss';
 
-const Button = ({ submit = false, text, onClick }: ButtonProps) => (
+const Button = ({
+  isTextButton = false,
+  submit = false,
+  text,
+  onClick,
+}: ButtonProps) => (
   <button
     type={submit ? 'submit' : 'button'}
     onClick={onClick}
-    className={styles.button}
+    className={isTextButton ? styles.textButton : styles.button}
   >
     {text}
   </button>

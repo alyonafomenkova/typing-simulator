@@ -12,3 +12,15 @@
     background-color: $dark-green;
   }
 }
+
+.textButton {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $green;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: $dark-green;
+  }
+}
