@@ -9,14 +9,17 @@
   font-size: 18px;
   color: $white;
   background-color: $dark-green;
+  white-space: pre-wrap;
 }
 
 .wrong {
   font-size: 18px;
   color: $white;
   background-color: $purple;
+  white-space: pre-wrap;
 }
 
 .common {
   font-size: 18px;
+  white-space: pre-wrap;
 }
