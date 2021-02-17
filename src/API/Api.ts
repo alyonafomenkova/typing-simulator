@@ -14,7 +14,7 @@ async function getEnglishText(sentenceCount: number) {
   return response.data[0];
 }
 
-const getText = (language: string, sentenceCount: number = 5) => {
+const getText = (language: string, sentenceCount: number = 3) => {
   switch (language) {
     case 'en':
       return getEnglishText(sentenceCount);
