@@ -1,5 +1,6 @@
 {
   "name": "typing-simulator",
+  "homepage": "https://alyonafomenkova.github.io/typing-simulator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
