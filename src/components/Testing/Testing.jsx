@@ -73,7 +73,7 @@ const Testing = () => {
     if (startTime && !finished) {
       const interval = setInterval(() => {
         setSymbolsPerMinute(calculateSymbolsPerMinute(startTime, currentIndex));
-      }, 500);
+      }, 2000);
       return () => {
         clearInterval(interval);
       };
